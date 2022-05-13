@@ -1,16 +1,10 @@
 # Voici tout les modules dont nous avons besoin pour faire fonctionner le jeu. 
-from os import system, name
+# from os import system, name
 from colors import Colors as c
 import random, json
 from os import path, listdir
 import time, sys
-
-def clear():
-    if name == 'nt':
-        _ = system('cls')
-
-    else:
-        _ = system('clear')
+from clear import clear
 # La partie suivante sert à simuler une animation de saisie de clavier. 
 
 # update_progress() : Displays or updates a console progress bar

@@ -5,7 +5,6 @@ import random, json
 from os import path, listdir
 import time, sys
 from clear import clear
-# La partie suivante sert à simuler une animation de saisie de clavier. 
 
 # update_progress() : Displays or updates a console progress bar
 ## Accepts a float between 0 and 1. Any int will be converted to a float.

@@ -115,7 +115,7 @@ depth = 1
 def waiting():
   input("Pressez ENTER pour continuer")
   clear()
-n = input("█████████████████████████████████\n█▄─▀█▀─▄█▄─▄█▄─▀█▄─▄█▄─▄▄─█▄─▄▄▀█\n██─█▄█─███─███─█▄▀─███─▄█▀██─▄─▄█\n▀▄▄▄▀▄▄▄▀▄▄▄▀▄▄▄▀▀▄▄▀▄▄▄▄▄▀▄▄▀▄▄▀\n꒦‧₊˚⊹ Avant de commencer à jouer, merci de lire les informations: show files > README.MD ₊˚੭ \n˃ ᴗ ˂ : Hello. Bienvenue sur MINER! 𓂃 ‹3 \n・ᘏ₊˚⁺ S'il vous plait, tapez votre pseudo ⋆﹆ \n₊˚ꔫ si vous avez sauvegardé votre partie, tapez le même pseudo et d - charger ₊˚  ੭\n ࿔꒰・Version 1.5\n")
+n = input("█████████████████████████████████\n█▄─▀█▀─▄█▄─▄█▄─▀█▄─▄█▄─▄▄─█▄─▄▄▀█\n██─█▄█─███─███─█▄▀─███─▄█▀██─▄─▄█\n▀▄▄▄▀▄▄▄▀▄▄▄▀▄▄▄▀▀▄▄▀▄▄▄▄▄▀▄▄▀▄▄▀\n꒦‧₊˚⊹ Avant de commencer à jouer, merci de lire les informations: show files > README.MD ₊˚੭ \n˃ ᴗ ˂ : Hello. Bienvenue sur MINER! 𓂃 ‹3 \n・ᘏ₊˚⁺ S'il vous plait, tapez votre pseudo ⋆﹆ \n₊˚ꔫ si vous avez sauvegardé votre partie, tapez le même pseudo et d - charger ₊˚  ੭\n ࿔꒰・Version 1.6a\n")
 
 #ici, on définit les valeurs par défaut de TOUTES les données que le joueur sera susceptible d'utiliser durant sa partie. 
 
@@ -139,6 +139,8 @@ pickUpCost = 100;
 backUpCost = 100;
 auraUpCost = 140;
 coffeeCost = 10;
+capuCost = 35;
+
 pickaxeHealth = pickaxeLevel * 20
 
 #ici, il s'agit de la "mine"
@@ -288,14 +290,14 @@ def atCoordinateMine(xCoord, yCoord):
 #On va définir le café.
 
 def coffee():
-  global money, stamina, coffeeCost, update_progress
+  global money, stamina, coffeeCost, capuCost, update_progress
   while True:
     print(f"Bienvenue au café! Prenez donc un café et détendez-vous!\n")
     print(f"࿔꒰・Energie: {stamina}    ࿔꒰・Monnaie: {money}\n ")
     while True:
-      sel = input(f"₊˚ ੭Choisissez votre action: \n࿔⸝⸝₊╭・A: Prendre un café:\n coût: {coffeeCost}; restaure 10.\n ₊˚ ੭Choisissez votre action: \n࿔⸝⸝₊╰・B: Partir\n")
+      sel = input(f"₊˚ ੭Choisissez votre action: \n࿔⸝⸝₊╭・A: Prendre un café:\n coût: {coffeeCost}; restaure 10.\n ₊˚ ੭Choisissez votre action: \n[Bêta]B:  Prendre un café:\n coût: {coffeeCost}; restaure tout (100) \n࿔⸝⸝₊╰・C:Partir ")
       sel = sel.lower()
-      if sel not in ["a", "b"]:
+      if sel not in ["a", "b", "c"]:
         clear()
         coffee()
       else: 
@@ -330,10 +332,40 @@ def coffee():
         clear()
         coffee()
 
-    if sel == "b":
+    if sel == "c":
       clear()
       mine()
+
+    if sel == "b":
       
+      clear()
+      if money < capuCost:
+        print(f"꒦‧₊˚⊹ Vous n'avez pas assez d'argent pour acheter un café qui coute {coffeeCost}. Minez encore un peu, vendez vos minerais et revenez plus tard! 𓂃 ‹3")
+        waiting()
+        clear()
+        coffee()
+
+      if stamina >= 90:
+        print(f"꒦‧₊˚⊹ Vous êtes bien energique, il n'est pas nécessaire de ce reposer. Allez travailler")
+        waiting()
+        coffee()
+        
+      else:
+        money -= capuCost
+        stamina == 100
+        capuCost += (15 + (pickaxeLevel - 1) * 0.5)
+        capuCost = round(capuCost)
+        print ("Voici votre cappuchino, Servez-vous!")
+#update_progress(10)
+#time.sleep(2)
+        for i in range(101):
+          time.sleep(0.05)
+          update_progress(i/100.0)
+        print(f"˃ ᴗ ˂ : On dirait que toute votre énergie est revenu! ₊˚ꔫ")
+        waiting()
+        clear()
+        coffee()
+
           
       
       
@@ -499,7 +531,7 @@ def mining():
 
       clear()
 def mine():
-  global x, y, items, n, field, gem, gold, iron, diam, money, pickUpCost, backUpCost, auraUpCost, pickaxeLevel, backpackLevel, auraLevel, pickaxeHealth, nbresave, allIron, allGold, allGem, allDiam, allPickaxeUsed, allMoney, stamina, coffeeCost, update_progress
+  global x, y, items, n, field, gem, gold, iron, diam, money, pickUpCost, backUpCost, auraUpCost, pickaxeLevel, backpackLevel, auraLevel, pickaxeHealth, nbresave, allIron, allGold, allGem, allDiam, allPickaxeUsed, allMoney, stamina, coffeeCost, update_progress, capuCost
   while True:
     print(f"˃ ᴗ ˂ : Bienvenue à nouveau sur LA VIE DE {n.upper()}!\n choisissez la lettre pour faire votre action:\n࿔⸝⸝₊╭・A: Miner\n࿔⸝⸝₊┇B: aller à la boutique\n࿔⸝⸝₊┇C: sauvgarder \n࿔⸝⸝₊┇D: charger\n࿔⸝⸝₊┇E: Tableau des leaders\n࿔⸝⸝₊┇F: crédit\n࿔⸝⸝₊┇G: Statistiques\n࿔⸝⸝₊╰・H: Café |NOUVEAU|")
     selection = input()
@@ -537,7 +569,7 @@ def mine():
   elif selection == "c":
     nbresave += 1
     with open(f"file/{n}.json", "w") as F:
-      jsonFile = {"name": n, "field": field, "stamina": stamina, "gem": gem, "gold": gold, "iron": iron, "diam": diam, "money": money, "pickUp": pickUpCost, "backUp": backUpCost, "auraUp": auraUpCost, "coffeeCost": coffeeCost, "pickLevel": pickaxeLevel, "backLevel": backpackLevel, "auraLevel": auraLevel, "pickHealth": pickaxeHealth, "nbresave": nbresave, "allIron": allIron, "allGold": allGold, "allGem": allGem, "allDiam": allDiam, "allPickaxeUsed": allPickaxeUsed, "allMoney": allMoney}
+      jsonFile = {"name": n, "field": field, "stamina": stamina, "gem": gem, "gold": gold, "iron": iron, "diam": diam, "money": money, "pickUp": pickUpCost, "backUp": backUpCost, "auraUp": auraUpCost, "coffeeCost": coffeeCost, "capuCost": capuCost, "pickLevel": pickaxeLevel, "backLevel": backpackLevel, "auraLevel": auraLevel, "pickHealth": pickaxeHealth, "nbresave": nbresave, "allIron": allIron, "allGold": allGold, "allGem": allGem, "allDiam": allDiam, "allPickaxeUsed": allPickaxeUsed, "allMoney": allMoney}
       json.dump(jsonFile, F)
       print ("")
       print ("███████████████████████████████████▀█\n█─▄▄▄▄██▀▄─██▄─█─▄█▄─▄█▄─▀█▄─▄█─▄▄▄▄█\n█▄▄▄▄─██─▀─███▄▀▄███─███─█▄▀─██─██▄─█\n▀▄▄▄▄▄▀▄▄▀▄▄▀▀▀▄▀▀▀▄▄▄▀▄▄▄▀▀▄▄▀▄▄▄▄▄▀\nSauvegarde en cours...")
@@ -574,6 +606,7 @@ def mine():
         pickaxeHealth = data['pickHealth']
         nbresave = data['nbresave']
         allMoney = data["allMoney"]
+        capuCost = data["capuCost"]
         ff.close()
 
         print ("")

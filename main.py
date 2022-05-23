@@ -75,7 +75,7 @@ time.sleep(2)
 print ("")
 print ("Démarrage du jeu")
 for i in range(101):
-    time.sleep(0.1)
+    time.sleep(0.001)
     update_progress(i/100.0)
 
 print ("")
@@ -532,10 +532,10 @@ def mining():
 def mine():
   global x, y, items, n, field, gem, gold, iron, diam, money, pickUpCost, backUpCost, auraUpCost, pickaxeLevel, backpackLevel, auraLevel, pickaxeHealth, nbresave, allIron, allGold, allGem, allDiam, allPickaxeUsed, allMoney, stamina, coffeeCost, update_progress, capuCost
   while True:
-    print(f"˃ ᴗ ˂ : Bienvenue à nouveau sur LA VIE DE {n.upper()}!\n choisissez la lettre pour faire votre action:\n࿔⸝⸝₊╭・A: Miner\n࿔⸝⸝₊┇B: aller à la boutique\n࿔⸝⸝₊┇C: sauvgarder \n࿔⸝⸝₊┇D: charger\n࿔⸝⸝₊┇E: Tableau des leaders\n࿔⸝⸝₊┇F: crédit\n࿔⸝⸝₊┇G: Statistiques\n࿔⸝⸝₊╰・H: Café\n I: recharger le jeu. |Beta|")
+    print(f"˃ ᴗ ˂ : Bienvenue à nouveau sur LA VIE DE {n.upper()}!\n choisissez la lettre pour faire votre action:\n࿔⸝⸝₊╭・A: Miner\n࿔⸝⸝₊┇B: aller à la boutique\n࿔⸝⸝₊┇C: sauvgarder \n࿔⸝⸝₊┇D: charger\n࿔⸝⸝₊┇E: Tableau des leaders\n࿔⸝⸝₊┇F: crédit\n࿔⸝⸝₊┇G: Statistiques\n࿔⸝⸝₊╰・H: Café\n R: recharger le jeu. |Beta|")
     selection = input()
     selection = selection.lower()
-    if selection in ["a", "b", "c", "d", "e", "f", "g", "h"]:
+    if selection in ["a", "b", "c", "d", "e", "f", "g", "h", "r"]:
       break
     else:
       clear()
@@ -644,10 +644,13 @@ def mine():
     waiting()
     mine()
 
-  elif selection == "f":
+  elif selection == "r":
+    clear()
+    
     print ("Rechargement de la sauvegarde...")
-    update_progress(i/100.0)
-    time.sleep(0,5)
+    for i in range(101):
+      update_progress(i/100.0)
+      time.sleep(0.01)
 
     print ("rechargement des couleurs")
     update_progress(3)
@@ -666,8 +669,8 @@ def mine():
     #update_progress([23])
     #time.sleep(1)
     for i in range(101):
-      time.sleep(0.01)
       update_progress(i/100.0)
+      time.sleep(0.01)
   
     print("")
     print ("rechargment de la boutique")

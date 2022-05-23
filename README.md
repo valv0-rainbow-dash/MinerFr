@@ -7,7 +7,7 @@ SI JAMAIS VOUS AVEZ BESOIN D'AIDE, UTILISEZ LES COMMENTAIRES OU ENVOYEZ MOI UN M
 
 version actuelle: 1.5.3
 
-version de developpement: 1.6a
+version de developpement: snapshot 01a02a
 
 CETTE VERSION EST UNE VERSION DE DEVELOPPEMENT! IL RISQUE D'Y AVOIR BEAUCOUP DE BUG!!
 
@@ -69,6 +69,11 @@ exemple: Pseudo: wolfy | ressources: money: 576, lvl pioche: 4, lvl sac: 4
 J'ai appris à mon insu que les fichiers de sauvegardes sont uniquement LOCALES et que le seul moyen de faire un leaderboard digne de ce nom est également de me dire votre score en commantaires ou en MP sur discord. 
 
 # Devlog: 
+
+## 23/05/22 - 10:36 - snapshot 01a02a
+- changement de la lettre pour recharger le jeu.
+- correction d'un bug qui fesait crasher le jeu lors du rechargement.
+- Ajout de pharase en plus dans le ficher random.txt
 
 ## 23/05/22 - 08:11 - snapshot 01a01a
 

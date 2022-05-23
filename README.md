@@ -70,6 +70,14 @@ J'ai appris à mon insu que les fichiers de sauvegardes sont uniquement LOCALES 
 
 # Devlog: 
 
+## 23/05/22 - 08:11 - snapshot 01a01a
+
+- Ajout d'un bouton de rechargement du jeu.
+
+
+## 18/05/2022 - version de dev 1.6.1a
+- Fix d'un bug qui affichait le prix du café à la place du cappuccino.
+
 ## 14/05/2022 - version de dev 1.6a
 - ajout du cappuchino.
   - Restaure toute la stamina.

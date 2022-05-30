@@ -7,7 +7,7 @@ SI JAMAIS VOUS AVEZ BESOIN D'AIDE, UTILISEZ LES COMMENTAIRES OU ENVOYEZ MOI UN M
 
 version actuelle: 1.5.3
 
-version de developpement: snapshot 01a02a
+version de developpement: snapshot 01a05a
 
 CETTE VERSION EST UNE VERSION DE DEVELOPPEMENT! IL RISQUE D'Y AVOIR BEAUCOUP DE BUG!!
 
@@ -30,6 +30,7 @@ Le sac de niveau 1 possède un stockage de 10 minerais. Chaque niveau augmente l
 si votre sac est plein, vous reviendrez au menu.
 
 ### La pioche:
+Récuperer un morceau de terre (0 vert), ne réduit pas la durabilité de la pioche.
 
 Récuperer un morceau de fer (0 gris), réduit de 1 la durabilité de la pioche.
 
@@ -48,9 +49,11 @@ Utilisez les instructions et les lettres marqué à l'écran.
 
 Voici le prix des minerais au niveau 1: 
 
+terre: 0,5;
 fer: 1;
 or: 3;
-gemme: 9
+gemme: 9;
+diamant: 12;
 
 le prix de chaque amélioration augmente à mesure que vous en acheté.
 
@@ -59,6 +62,8 @@ Le multiplicateur multiplie le total de tout les minerais par le niveau du multi
 # Sauvegarde
 
 Dut au système de sauvegarde cassé et uniquement local, si vous voulez que votre partie soit sauvegardé de mon coté - est à dire par défaut dans le jeu-, vous devez me dire en commantaire ou en mp à ๑ ﾟ˖ 𑄻 Bêta wolfy⸝⸝☕ ̇ ⊹#0911 vos stats (monnaie, niveau pioche, niveau sac...) et votre pseudo.
+
+MIGRATION VERS LA DB DE REPLIT PREVU. 
 
 Par obligation technique de la part de REPLIT, le jeu ne peut être mis à jour toutes les 24h. 
 
@@ -70,13 +75,28 @@ J'ai appris à mon insu que les fichiers de sauvegardes sont uniquement LOCALES 
 
 # Devlog: 
 
+## 30/05/22 - 11:32 - snapshot 01a05a
+- Ajout de la terre.
+  - De couleur verte, elle ne consomme ni de stamina, si de durabilité.
+  - la valeur monétaire de la terre est de 0,5.
+- Meilleur calcul du prix des minerais.
+- 
+
+## 23/05/22 - 14:16 - snapshot 01a04a
+- correction du sens d'une phrase du café.
+
+## 23/05/22 - 13:02 - snapshot 01a03a
+- résolution d'un bug concernant le cappuccino
+  - le cappuchino ne restaurait que 10 de stamina au lieu de 100.
+  - le nom était "café" au lieu de cappuchino.
+  - le prix affiché était celui du café. 
+
 ## 23/05/22 - 10:36 - snapshot 01a02a
 - changement de la lettre pour recharger le jeu.
 - correction d'un bug qui fesait crasher le jeu lors du rechargement.
 - Ajout de pharase en plus dans le ficher random.txt
 
 ## 23/05/22 - 08:11 - snapshot 01a01a
-
 - Ajout d'un bouton de rechargement du jeu.
 
 

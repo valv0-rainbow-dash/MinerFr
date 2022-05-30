@@ -124,6 +124,7 @@ gem = 0;
 gold = 0;
 iron = 0;
 diam = 0;
+dirt = 0;
 allIron = 0;
 allGold = 0;
 allGem = 0;
@@ -181,6 +182,8 @@ for line in field:
       color = c.bright_yellow
     elif a <=5:
       color = c.blue
+    elif a >= 65 and a <= 100:
+      color = c.green
     field[counterY - 1][counterX - 1] = f"{color}{field[counterY - 1][counterX - 1]}{c.r}"
 def newDepth():
   counterX = 0
@@ -200,6 +203,8 @@ def newDepth():
         color = c.bright_yellow
       elif a <=5:
         color = c.blue
+      elif a >= 65 and a <= 100:
+        color = c.green
       if field[counterY - 1][counterX - 1] == "#":
         field[counterY - 1][counterX - 1] = f"{color}#{c.r}"
       else:
@@ -234,14 +239,19 @@ def findPos():
 
 #Ici, on va définir les propriétés des minerais, c'est à dire le nombre de minerai en plus quand on en récupère un, et la durabilité de la pioche.
 def atCoordinateMine(xCoord, yCoord):
-  global iron, gem, gold, diam, allIron, allGold, allGem, allDiam, pickaxeHealth, allPickaxeUsed, stamina
+  global dirt, iron, gem, gold, diam, allIron, allGold, allGem, allDiam, pickaxeHealth, allPickaxeUsed, stamina
   it = field[yCoord - 1][xCoord - 1]
   
   #Si le minerai récupéré est du fer:
     #On ajoute 1 de fer
     #On ajoute aussi 1 au compteur total.
     #On enlève 1 à la durabilité de la pioche.
-  if it == f"{c.white}0{c.r}":
+  if it == f"{c.green}0{c.r}":
+    stamina += 1
+    dirt += 1
+    op = 1
+  
+  elif it == f"{c.white}0{c.r}":
     iron += 1
     allIron += 1
     allPickaxeUsed += 1
@@ -266,7 +276,6 @@ def atCoordinateMine(xCoord, yCoord):
   elif it == f"{c.magenta}0{c.r}":
     gem += 1
     allGem += 1
-    stamina -= 2
     allPickaxeUsed += 1
     pickaxeHealth -= 5
     op = 1
@@ -294,7 +303,7 @@ def coffee():
     print(f"Bienvenue au café! Prenez donc un café et détendez-vous!\n")
     print(f"࿔꒰・Energie: {stamina}    ࿔꒰・Monnaie: {money}\n ")
     while True:
-      sel = input(f"₊˚ ੭Choisissez votre action: \n࿔⸝⸝₊╭・A: Prendre un café:\n coût: {coffeeCost}; restaure 10.\n ₊˚ ੭Choisissez votre action: \n[Bêta]B:  Prendre un café:\n coût: {coffeeCost}; restaure tout (100) \n࿔⸝⸝₊╰・C:Partir ")
+      sel = input(f"₊˚ ੭Choisissez votre action: \n࿔⸝⸝₊╭・A: Prendre un café:\n coût: {coffeeCost}; restaure 10.\n ₊˚ ੭Choisissez votre action: \n[Bêta]B:  Prendre un cappuchino:\n coût: {capuCost}; restaure tout (100) \n࿔⸝⸝₊╰・C:Partir ")
       sel = sel.lower()
       if sel not in ["a", "b", "c"]:
         clear()
@@ -320,7 +329,7 @@ def coffee():
         stamina += 10
         coffeeCost += (1 + (pickaxeLevel - 1) * 0.5)
         coffeeCost = round(coffeeCost)
-        print ("Voici votre café, Servez-vous!")
+        print ("Voici votre café, régalez-vous bien!")
 #update_progress(10)
 #time.sleep(2)
         for i in range(101):
@@ -351,10 +360,10 @@ def coffee():
         
       else:
         money -= capuCost
-        stamina == 100
+        stamina = 100
         capuCost += (15 + (pickaxeLevel - 1) * 0.5)
         capuCost = round(capuCost)
-        print ("Voici votre cappuchino, Servez-vous!")
+        print ("Voici votre cappuchino, régalez-vous bien!")
 #update_progress(10)
 #time.sleep(2)
         for i in range(101):
@@ -365,15 +374,11 @@ def coffee():
         clear()
         coffee()
 
-          
-      
-      
-  
 #On passe à la définition de l'interface du shop.
 
 
 def shop():
-  global money, pickaxeLevel, pickaxeHealth, backpackLevel, auraLevel, pickUpCost, backUpCost, auraUpCost, iron, gold, gem, diam, allIron, allGold, allGem, allDiam, allMoney
+  global money, pickaxeLevel, pickaxeHealth, backpackLevel, auraLevel, pickUpCost, backUpCost, auraUpCost, dirt, iron, gold, gem, diam, allIron, allGold, allGem, allDiam, allMoney, update_progress
   while True:
     print(f"࿔꒰・niveau de la pioche: {pickaxeLevel}    ࿔꒰・taille du sac: {backpackLevel}      ࿔꒰・multiplieur de bonnes affaires: {auraLevel}      Monnaie: {money}\n ")
     while True:
@@ -387,7 +392,14 @@ def shop():
     if sel == "a":
 
       clear()
-      amountSold = round((iron * 1 + gold * 3 + gem * 9 + diam * 12) * (1 + auraLevel * 0.3)) 
+      print(f" vous vendez {dirt} terres, {iron} fer, {gold} d'or, {gem} gemmes et {diam} diamants.")
+      print("Chargment du prix...")
+#update_progress(10)
+#time.sleep(2)
+      for i in range(101):
+          time.sleep(0.01)
+          update_progress(i/100.0)
+      amountSold = round((dirt * 0.5 + iron * 1 + gold * 3 + gem * 9 + diam * 12) * (1 + auraLevel * 0.3)) 
       iron = 0
       gold = 0
       gem = 0

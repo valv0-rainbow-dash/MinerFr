@@ -10,9 +10,7 @@ SI JAMAIS VOUS AVEZ BESOIN D'AIDE, UTILISEZ LES COMMENTAIRES OU ENVOYEZ MOI UN M
 
 # Version: 
 
-- Version actuelle: **1.5.3**
-- Version Bêta: 1.6b
-
+- Version actuelle: **1.6**
 # Contrôles/information: 
 ## dans la mine: 
 W: aller en haut.
@@ -72,6 +70,11 @@ J'ai appris à mon insu que les fichiers de sauvegardes sont uniquement LOCALES 
 
 # Devlog: 
 
+
+## 07/06/2022 - 1.6
+- Création du fichier clear.py
+  - Réorganisation du code dans main.py dut dût à ce changement.
+- Ajout mineur et correction de bug divers. 
 ## 22/04/2022 - 1.5.3
 - Retrait d'une ligne dupliqué.
 - correction d'un bug qui redirige vers le shop quand le joueur n'avait pas assez d'argent pour payer le café.

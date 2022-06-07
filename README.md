@@ -75,7 +75,7 @@ J'ai appris à mon insu que les fichiers de sauvegardes sont uniquement LOCALES 
 
 # Devlog: 
 
-## 30/05/22 - 11:32 - 1.7b
+## 07/06/22 - 11:32 - 1.7b
 
 ### Ajouts majeurs: 
 - Ajout de la terre.

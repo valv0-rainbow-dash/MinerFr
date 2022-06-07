@@ -1,9 +1,17 @@
-# Miner :
+# Miner BETA :
+
+Cette branche est la version bêta du jeu. Elle risque de contenir des bugs important
 
 ![alt-text](https://i.imgur.com/oa0Dov2.png)
 Utilisez votre pioche pratique pour extraire du fer, de l'or et des pierres précieuses afin de faire le plus grand profit possible et de passer aux niveaux les plus élevés. 
 
 SI JAMAIS VOUS AVEZ BESOIN D'AIDE, UTILISEZ LES COMMENTAIRES OU ENVOYEZ MOI UN MP ๑ ﾟ˖ 𑄻 Bêta wolfy⸝⸝☕ ̇ ⊹#0911 !!
+
+
+# Version: 
+
+- Version actuelle: **1.5.3**
+- Version Bêta: 1.6b
 
 # Contrôles/information: 
 ## dans la mine: 

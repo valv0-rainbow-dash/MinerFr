@@ -1,6 +1,4 @@
-# Miner BETA :
-
-Cette branche est la version bêta du jeu. Elle risque de contenir des bugs important
+# Miner:
 
 ![alt-text](https://i.imgur.com/oa0Dov2.png)
 Utilisez votre pioche pratique pour extraire du fer, de l'or et des pierres précieuses afin de faire le plus grand profit possible et de passer aux niveaux les plus élevés. 
